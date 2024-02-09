@@ -3,58 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Oblig1 Kinobilleter</title>
-    <script type="application/javascript" src="oblig1.js" defer></script>
+    <script type="application/javascript" src="oblig1.js"></script>
 </head>
 <body>
-<h2>Bestilling av Kinobilleter</h2>
-<table>
-    <tr>
-            <label for="filmer">Velg film</label>
-            <select id="filmer" >
-                <option value="wonka">Willy Wonka</option>
-                <option value="hungerGames">Hunger games</option>
-                <option value="insideJob">Inside Job</option>
-                <option value="starWars">Star wars</option>
-            </select>
-    </tr>
-    <tr>
-            <label for="antall">antall</label>
-            <input id="antall" type="number" style="width:30px;" required/>
+<section id="main">
+    <h1>Oblig 1, Webprogrammering</h1>
+    <h2>Bestilling av Kinobilleter</h2>
+    <form onsubmit="kinoBilleter(event); return false;" method="post">
+        <label for="filmer">Velg film</label>
+        <select id="filmer" style="width: 150px;" required >
+            <option value="wonka">Willy Wonka</option>
+            <option value="hungerGames">Hunger games</option>
+            <option value="insideJob">Inside Job</option>
+            <option value="starWars">Star wars</option>
+        </select>
+        <label for="antall">Antall</label>
+        <input id="antall" name="antall" type="number" style="width: 30px;" value=""
+               oninvalid="this.setCustomValidity('velg antall må være mer en 0')" oninput="this.setCustomValidity('')">
+        <br>
+        <label for="forNavn">Fornavn: </label>
+        <input id="forNavn" name="forNavn" type="text" value="" required minlength="3" maxlength="15" placeholder="Fornavn"
+               oninvalid="this.setCustomValidity('Skriv inn ditt Fornavn')" oninput="this.setCustomValidity('')">
+        <br>
+        <label for="EtterNavn">Etternavn: </label>
+        <input id="etterNavn" name="etterNavn" type="text" value="" required minlength="3" maxlength="15" placeholder="Etternavn"
+               oninvalid="this.setCustomValidity('Skriv inn ditt Etternavn')" oninput="this.setCustomValidity('')">
+        <br>
+        <label for="telefon">Telefon: </label>
+        <input id="telefon" name="telefon" type="number"  value="" required minlength="8" maxlength="10"  placeholder="12345678"
+               oninvalid="this.setCustomValidity('Skriv et gyldig telefonnummer')" oninput="this.setCustomValidity('')">
+        <br>
+        <label for="epost">Epost: </label>
+        <input id="epost" name="epost" type="email" value="" required placeholder="Epost@Exempel.no"
+               oninvalid="this.setCustomValidity('Skriv inn en epost adresse')" oninput="this.setCustomValidity('')">
+        <br>
+        <button type="submit">kjøp billet</button>
+    </form>
+    <h2>Alle billeter</h2>
+    <div id="ut"></div>
+    <br>
+    <button onclick="slettbilleter()">slett billetene</button>
 
-    </tr>
-    <tr>
-        <th>
-            <label for="forNavn">Fornavn</label>
-            <input id="forNavn" on="validering()" type="text" value=""/>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <label for="etterNavn">Etternavn</label>
-            <input id="etterNavn" oninput="validering()" type="text" value=""/>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <label for="telefon">Telefon</label>
-            <input id="telefon" oninput="validering()" type="number" value=""/>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <label for="epost">Epost</label>
-            <input id="epost" oninput="validering()" type="text" value=""/>
-        </th>
-    </tr>
-</table>
-<form>
-    <button onclick="kinoBilleter()">Kjøp billet</button>
-</form>
-
-<h2>Billeter</h2>
-<div id="ut"></div>
-
-<button>slett billetene</button>
-
+</section>
 </body>
 </html>
