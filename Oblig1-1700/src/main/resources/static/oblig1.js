@@ -92,6 +92,6 @@ const kinoBilleter = (event) => {
 
 const slettbilleter = () => {
     billeter.length = 0;
-    const out = document.getElementById('ut');
-    out.innerHTML = '';
+    const ut = document.getElementById('ut');
+    ut.innerHTML = '';
 };
