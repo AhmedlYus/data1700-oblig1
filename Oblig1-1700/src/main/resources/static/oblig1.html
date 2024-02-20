@@ -9,7 +9,7 @@
 <section id="main">
     <h1>Oblig 1, Webprogrammering</h1>
     <h2>Bestilling av Kinobilleter</h2>
-    <form onsubmit="kinoBilleter(event); return false;" method="post">
+    <form onsubmit="kinoBilleter(); return false;" method="post">
         <label for="filmer">Velg film</label>
         <select id="filmer" style="width: 150px;" required>
             <option value="wonka">Willy Wonka</option>
@@ -17,6 +17,7 @@
             <option value="insideJob">Inside Job</option>
             <option value="starWars">Star wars</option>
         </select>
+        <br>
         <label for="antall">Antall</label>
         <input id="antall" name="antall" type="number" style="width: 30px;" value=""
                oninvalid="this.setCustomValidity('velg antall må være mer en 0')" oninput="this.setCustomValidity('')">

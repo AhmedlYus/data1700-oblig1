@@ -4,18 +4,22 @@ const setValidering = () => {
 }
 
 /* The Validate function is no longer in use as i opted to use html validate instead by writing required inside the
-form input with setCostumValidity(). if i would have needed a server or backend validate it would propably look something like this.
+form input with setCostumValidity(). if i would have needed a server or backend validate it would propably look something like this, under
+choose to make it html validate because its cleaner and would be more responsive in a webdevelopment, as the information is checked imediatly
+users dosnt have to wait on validating response from the server or the database information will be stored in.
 const validering = () => {
     let forNavn = document.getElementById("forNavn").value;
     let etterNavn = document.getElementById("etterNavn").value;
     let telefon = document.getElementById("telefon").value;
     let epost = document.getElementById("epost").value;
 
+    let valid = true;
     // input validering
     const fornavnValidering = () => {
         if (forNavn === ''){
-            alert('Skriv inn et fornavn før kjøp.');
-            return false;
+            document.getElementByID(fornavn).textContent ='Skriv inn et fornavn før kjøp.'; / would have to put span and
+            seperate id in the html
+            Valid = false;
         }
         return true;
     };
