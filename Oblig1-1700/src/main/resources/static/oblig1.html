@@ -30,12 +30,12 @@
         <input id="etterNavn" name="etterNavn" type="text" value="" required minlength="3" maxlength="15" placeholder="Etternavn"
                oninvalid="this.setCustomValidity('Skriv inn ditt Etternavn')" oninput="this.setCustomValidity('')">
         <br>
-        <label for="telefon">Telefon: </label>
-        <input id="telefon" name="telefon" type="number"  value="" required minlength="8" maxlength="10"  placeholder="12345678"
-               oninvalid="this.setCustomValidity('Skriv et gyldig telefonnummer')" oninput="this.setCustomValidity('')">
+        <label for="telefon">Telefon: </label> <!--0-9 cannot excite 8 digits reason for why {8}-->
+        <input id="telefon" name="telefon" type="number"  value="" required="required" maxlength="8" pattern="[0-9]{8}"
+               placeholder="12345678" oninvalid="this.setCustomValidity('Skriv et gyldig telefonnummer')" oninput="this.setCustomValidity('')">
         <br>
-        <label for="epost">Epost: </label>
-        <input id="epost" name="epost" type="email" value="" required placeholder="Epost@Exempel.no"
+        <label for="epost">Epost: </label> <!--Logic in the email regrex is, must be caracters after @ and atleast 2 caracters after the '.'-->
+        <input id="epost" name="epost" type="email" value="" required="required" pattern=[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}placeholder="Epost@Exempel.no"
                oninvalid="this.setCustomValidity('Skriv inn en epost adresse')" oninput="this.setCustomValidity('')">
         <br>
         <button type="submit">kjøp billet</button>
