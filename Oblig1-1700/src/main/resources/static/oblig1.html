@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Oblig1 Kinobilleter</title>
     <script type="application/javascript" src="oblig1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error{
+            color: red;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 <section id="main">
@@ -17,26 +24,29 @@
             <option value="insideJob">Inside Job</option>
             <option value="starWars">Star wars</option>
         </select>
+        <span id="filmer-error" class="error"></span>
         <br>
         <label for="antall">Antall</label>
-        <input id="antall" name="antall" type="number" style="width: 30px;" value=""
-               oninvalid="this.setCustomValidity('velg antall må være mer en 0')" oninput="this.setCustomValidity('')">
+        <input id="antall" name="antall" type="number" style="width: 30px;" value="">
+        <span id="antall-error" class="error"></span>
         <br>
         <label for="forNavn">Fornavn: </label>
-        <input id="forNavn" name="forNavn" type="text" value="" required minlength="3" maxlength="15" placeholder="Fornavn"
-               oninvalid="this.setCustomValidity('Skriv inn ditt Fornavn')" oninput="this.setCustomValidity('')">
+        <input id="forNavn" name="forNavn" type="text" value=""  placeholder="Fornavn">
+        <span id="forNavn-error" class="error"></span>
         <br>
-        <label for="EtterNavn">Etternavn: </label>
-        <input id="etterNavn" name="etterNavn" type="text" value="" required minlength="3" maxlength="15" placeholder="Etternavn"
-               oninvalid="this.setCustomValidity('Skriv inn ditt Etternavn')" oninput="this.setCustomValidity('')">
+        <label for="etterNavn">Etternavn: </label>
+        <input id="etterNavn" name="etterNavn" type="text" value="" placeholder="Etternavn">
+        <span id="etternavn-error" class="error"></span>
         <br>
-        <label for="telefon">Telefon: </label> <!--0-9 cannot excite 8 digits reason for why {8}-->
-        <input id="telefon" name="telefon" type="number"  value="" required="required" maxlength="8" pattern="[0-9]{8}"
-               placeholder="12345678" oninvalid="this.setCustomValidity('Skriv et gyldig telefonnummer')" oninput="this.setCustomValidity('')">
+        <label for="telefon">Telefon: </label>
+        <!-- 0-9 cannot exceed 8 digits, reason for why {8} -->
+        <input id="telefon" name="telefon" type="number" value="" placeholder="12345678">
+        <span id="telefon-error" class="error"></span>
         <br>
-        <label for="epost">Epost: </label> <!--Logic in the email regrex is, must be caracters after @ and atleast 2 caracters after the '.'-->
-        <input id="epost" name="epost" type="email" value="" required="required" pattern=[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}placeholder="Epost@Exempel.no"
-               oninvalid="this.setCustomValidity('Skriv inn en epost adresse')" oninput="this.setCustomValidity('')">
+        <label for="epost">Epost: </label>
+        <!-- Logic in the email regex is, must be characters after @ and at least 2 characters after the '.' -->
+        <input id="epost" name="epost" type="email" value="" placeholder="Epost@Exempel.no">
+        <span id="epost-error" class="error"></span>
         <br>
         <button type="submit">kjøp billet</button>
     </form>
